@@ -1,0 +1,27 @@
+{
+  "name": "Google Photo Sample",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "minimum_chrome_version": "29",
+  "oauth2": {
+    "client_id": "428333881769-cfij2g5edvqdhnnnemf0chnuj9c0clc2.apps.googleusercontent.com",
+    "scopes": [
+      "https://www.googleapis.com/auth/drive"
+    ]
+  },
+  "icons": {
+    "128": "icon_128.png"
+  },
+  //"key": "AIzaSyCOVrhPDAkHcOpNwhGGCAjLVtP2VCgUGl8 ",
+  "app": {
+    "background": {
+      "scripts": ["js/background.js"]
+    }
+  },
+  "permissions": [
+    "identity",
+    "https://ssl.gstatic.com/",
+    "https://www.googleapis.com/",
+    "https://accounts.google.com/"
+  ]
+}

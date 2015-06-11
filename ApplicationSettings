@@ -1,0 +1,164 @@
+Application Settings
+Your application's Consumer Key and Secret are used to authenticate requests to the Twitter Platform.
+Access level	Read and write (modify app permissions)
+Consumer Key (API Key)	lvg35Q5uTh9xK3khN25Ov58zK (manage keys and access tokens)
+Callback URL	https://oauth.io/auth
+Sign in with Twitter	Yes
+App-only authentication	https://api.twitter.com/oauth2/token
+Request token URL	https://api.twitter.com/oauth/request_token
+Authorize URL	https://api.twitter.com/oauth/authorize
+Access token URL	https://api.twitter.com/oauth/access_token
+
+
+oauthIO:
+E_iqivVvf7vJjycRCk6V2jvJENU
+1T5XBH81dw3iQQsAV8xXyrgGjYc
+
+Public Key:
+0qgimIOs_jKREQCFVJPCX7T28bs
+VcglL7tKHPT496CmOBvpH1iTajg
+
+
+		var twitter = require('ntwitter');
+         var twit = new twitter({
+          consumer_key: 'hBXE8XdPBhKoForuMxm2nA',
+          consumer_secret: 'BO2ajaysnyYpbJQRpFLTcsHXt7aLCI1RpkeJTsgw5Qs',
+          access_token_key: '1515740455-E7zQzAqV7kw4OGdHwiFwOmqSd2r7mbiUpag5YjQ',
+          access_token_secret: 'DlH4hfOshBBanOUyR6gJrlDwPpGRzo47B2tlePpV8DTq8'
+        });
+
+        twit.stream('statuses/sample', function(stream) {
+          stream.on('data', function (data) {
+            console.log(data);
+          });
+        });
+
+
+Consumer Key (API Key)	lvg35Q5uTh9xK3khN25Ov58zK
+Consumer Secret (API Secret)	G6qDSYxAc7FWrCvwQJ0xaYbCd17yL7RJOWWDaWji9Nbqzg1b7c
+Access Token	1515740455-vZvvLv10vE77YFtnHjqiMQVKbyvswRdKpRY27ow
+Access Token Secret	odnFRlSjZDgffLDmo7WSKrlS9OP77c2wdpDGytMKdFki5
+
+
+OAuth oauth_callback="http%3A%2F%2Flocalhost%2Fsign-in-with-twitter%2F",
+              oauth_consumer_key="cChZNFj6T5R0TigYB9yd1w",
+              oauth_nonce="ea9ec8429b68d6b77cd5600adbbb0456",
+              oauth_signature="F1Li3tvehgcraF8DMJ7OyxO4w9Y%3D",
+              oauth_signature_method="HMAC-SHA1",
+              oauth_timestamp="1318467427",
+              oauth_version="1.0"
+
+
+1) Requesting a token 
+POST /oauth/request_token HTTP/1.1
+User-Agent: obscure's HTTP Client
+Host: api.twitter.com
+Accept: */*
+Authorization: 
+        OAuth oauth_callback="http%3A%2F%2Flocalhost%2Fsign-in-with-twitter%2F",
+              oauth_consumer_key="cChZNFj6T5R0TigYB9yd1w",
+              oauth_nonce="ea9ec8429b68d6b77cd5600adbbb0456",
+              oauth_signature="F1Li3tvehgcraF8DMJ7OyxO4w9Y%3D",
+              oauth_signature_method="HMAC-SHA1",
+              oauth_timestamp="1318467427",
+              oauth_version="1.0"
+
+
+callback_url: http://localhost:5000/
+oauth_consumer key: lvg35Q5uTh9xK3khN25Ov58zK
+oauth_nonce: 32 char alpha numeric random string
+oauth_signature: 
+oauth_signature_method: HMAC-SHA1
+oauth_timestamp:
+oauth_version:
+
+consumer secret and oauth token secret -- Dogs%2C%20Cats%20%26%20Mice
+
+Response:
+HTTP/1.1 200 OK
+Date: Thu, 13 Oct 2011 00:57:06 GMT
+Status: 200 OK
+Content-Type: text/html; charset=utf-8
+Content-Length: 146
+Pragma: no-cache
+Expires: Tue, 31 Mar 1981 05:00:00 GMT
+Cache-Control: no-cache, no-store, must-revalidate, pre-check=0, post-check=0
+Vary: Accept-Encoding
+Server: tfe
+
+oauth_token=NPcudxy0yU5T3tBzho7iCotZ3cnetKwcTIRlX0iwRl0&
+oauth_token_secret=veNRnAWe6inFuo8o2u8SLLZLjolYDmDP7SzL0YfYI&
+oauth_callback_confirmed=true
+var twitterOauthEndpoint = $http.get(
+  'https://api.twitter.com/oauth2/token'
+  , "grant_type=client_credentials"
+  , {headers: {'Authorization': 'Basic ' + credentials, 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'}}
+);
+
+
+2) Redirecting the user to twitter authentication mechansim
+
+3) Converting request token to an access token
+
+You are getting this error due to CORS
+
+you are making a cross domain call with $http.get, you need to change it to $http.jsonp and also provide a valid twitter api callback
+
+    function randomString(length, chars) {
+            var result = '';
+            for (var i = length; i > 0; --i) result += chars[Math.round(Math.random() * (chars.length - 1))];
+            return result;
+        }    var app=angular.module('store',[]);app.controller('indexController', function($scope, $http) {
+var unixtime=Math.round((new Date()).getTime() / 1000.0),
+ nonce=randomString(32,'0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'); var httpMethod = 'GET',
+url = 'https://api.twitter.com/1.1/statuses/home_timeline.json',
+parameters = {
+    oauth_consumer_key : 'AD6SEy1m3XkggNTuYw5SUl4dv',
+    oauth_nonce : nonce,
+    oauth_signature_method : 'HMAC-SHA1',
+    oauth_timestamp : unixtime,
+    oauth_token : '3131481153-I9k4ZvdnePO42lOH0EJQNQcAHoyim6XrFFzFk90',
+    oauth_version : '1.0',
+    screen_name:'twitterapi',
+    callback: 'twitterCallback'
+},
+consumerSecret = 'xxxxxxx',
+tokenSecret = 'xxxxxxx',
+
+signature = oauthSignature.generate(httpMethod, url, parameters, consumerSecret, tokenSecret,
+    { encodeSignature: true});
+    $http.jsonp(url, {
+headers: {
+    'Authorization':
+        'OAuth oauth_consumer_key="AD6SEy1m3XkggNTuYw5SUl4dv",' +
+        'oauth_signature_method="HMAC-SHA1",' +
+        'oauth_timestamp='+unixtime +
+        'oauth_nonce='+nonce +
+        'oauth_version="1.0",' +
+        'oauth_token="3131481153-I9k4ZvdnePO42lOH0EJQNQcAHoyim6XrFFzFk90",'+
+        'oauth_signature='+signature
+},
+params:{screen_name:'twitterapi'}}).success(function (data) 
+{ 
+    $scope.tweets = data; 
+});  });
+
+
+
+
+
+Instangular
+CLIENT INFO
+CLIENT ID	bd41e5cff6364703aa8ed712bba7e172
+CLIENT SECRET	f79bf98444044eb7937d492e65b2a423
+WEBSITE URL	http://localhost:8000
+REDIRECT URI	http://localhost:8000
+SUPPORT EMAIL	midhun.nitw@gmail.com
+
+
+
+
+Firebase:
+shining-fire-3005.firebaseIO.com
+
+https://shining-fire-3005.firebaseio.com/#-JrGITnrW9fpu_bZ8NM8|2c0750524fcb2726a0f443beee0aca6c

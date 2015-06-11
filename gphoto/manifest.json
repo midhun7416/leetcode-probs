@@ -1,0 +1,28 @@
+{
+  "name": "sample-mc",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "oauth2": {
+    "client_id": "428333881769-compute@developer.gserviceaccount.com",
+    "scopes": [
+      "https://www.googleapis.com/auth/admin.directory.user"
+    ]
+  },
+  //"background": {
+    // Recommended
+    //"persistent": false
+  //},
+  "app": {
+    "background": {
+      "scripts": ["js/background.js"]
+    }
+  },
+  "minimum_chrome_version": "28",
+  "permissions": [
+    "identity",
+    "https://ssl.gstatic.com/",
+    "https://www.googleapis.com/",
+    "https://accounts.google.com/",
+    "https://www.googleapis.com/auth/admin.directory.user"
+  ]
+}

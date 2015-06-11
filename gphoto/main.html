@@ -1,0 +1,21 @@
+<html ng-app="gPhotoApp" ng-csp="">
+    <head>
+        <title>Sample Google Photos Extension</title>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="css/styles.css">
+        <script src="js/angular.min.js"></script>
+        <script src="js/gphotos.js"></script>
+        <script src="js/app.js"></script>
+        <script src="js/background.js"></script>
+    </head>
+    <body data-ng-controller="photoController">
+        <h1>Google photos Viewer</h1>
+        <nav>
+        <button id="authorize-button" class="btn" data-ng-click="toggleAuth(true)">{{authButtonLabel()}}</button>
+        <button class="btn btn-block" data-ng-click="getPhotos()">Get photos</button>
+        <button class="btn" id="close-button" title="Close">x</button>
+        </nav>
+        
+
+    </body>
+</html>
